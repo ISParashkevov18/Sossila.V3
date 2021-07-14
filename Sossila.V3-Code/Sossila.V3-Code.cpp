@@ -37,7 +37,7 @@ int getCustomerById(CUSTOMER* customers, int& customerCount, int Id)
 CUSTOMER getOrder(CUSTOMER* customer, int& customerCount, int Id)
 {
 	int index = getCustomerById(customer, customerCount, Id);
-	if (index != Id)
+	if (index == -1)
 	{
 		cout << "Enter valid ID";
 		cin >> index;
@@ -165,3 +165,135 @@ void deleteCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId) {
 	deleteCustomer(customers, customerCount, customerId);
 }
 
+void editOrderMenu(CUSTOMER* customers, int& customerCount) {
+	int customerId;
+	cin >> customerId;
+	CUSTOMER customer = getOrder(customers, customerCount, customerId);
+
+	cout << "1. Username: " << endl;
+	cout << "2. Password: " << endl;
+	cout << "3. First Name: " << endl;
+	cout << "4. LastName: " << endl;
+	cout << "5 Address: " << endl;
+	cout << "6 Student Name: " << endl;
+	cout << "7 Age: " << endl;
+	cout << "The field you want to edit: ";
+
+	int edit;
+	cin >> edit;
+
+	switch (edit) {
+	case 1: {
+		cout << "Username: ";
+		cin >> customer.Username;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 2: {
+		cout << "Password: ";
+		cin >> customer.Password;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 3: {
+		cout << "First Name: ";
+		cin >> customer.First_Name;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 4: {
+		cout << "Last Name: ";
+		cin >> customer.Last_Name;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 5: {
+		cout << "Address: ";
+		cin >> customer.Address;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 6: {
+		cout << "Student Name: ";
+		cin >> customer.Student_Name;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	case 7: {
+		cout << "Age: ";
+		cin >> customer.Year_of_student;
+		updateCustomer(customers, customerCount, customer, customerId);
+		break;
+	}
+	default: {
+		cout << "Invalid field!" << endl;
+		break;
+	}
+
+
+	}
+}
+
+bool showMainMenu(CUSTOMER* customers, int& customerCount, int maxId) {
+
+	int choice;
+
+	cout << "\n----/MAIN MENU/----" << endl;
+	cout << "1.Customer Menu" << endl;
+	cout << "2.Show Customers" << endl;
+	cout << "3.Edit Customers" << endl;
+	cout << "4.Delete Customers" << endl;
+	cout << "9.Exit" << endl;
+	cout << "Your choice: ";
+
+	cin >> choice;
+
+	switch (choice) {
+	case 1: {
+		CustomerMenu(customers, customerCount, maxId);
+		break;
+	}
+	case 2: {
+		showCustomerMenu(customers, customerCount, maxId);
+		break;
+	}
+	case 3: {
+		editOrderMenu(customers, customerCount);
+		break;
+	}
+	case 4: {
+		deleteCustomerMenu(customers, customerCount, maxId);
+		break;
+	}
+
+	case 9: {
+		return false;
+	}
+	default:
+		break;
+
+	}
+}
+
+int main()
+{
+	cout << "Hostel program\n";
+	int customerCount = 0;
+	int maxId = 1;
+	CUSTOMER customers[500];
+
+	bool mainMenu = true;
+	string admin;
+	string adminpass;
+	cout << "Insert Username: ";
+	getline(cin, admin);
+	cout << "Insert Password: ";
+	getline(cin, adminpass);
+	bool isAdmina = isAdmin(admin, adminpass);
+	if (isAdmina == true)
+	{
+		do {
+			mainMenu = showMainMenu(customers, customerCount, maxId);
+		} while (mainMenu);
+	}
+}

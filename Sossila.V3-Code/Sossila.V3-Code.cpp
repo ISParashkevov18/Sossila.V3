@@ -123,3 +123,12 @@ void showCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId)
 		cout << "Customer's Year of student: " << customers[i].Year_of_student << endl;
 	}
 }
+
+void deleteCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId) {
+	int customerId;
+
+	cout << "Enter User Id: ";
+	cin >> customerId;
+
+	deleteCustomer(customers, customerCount, customerId);
+}

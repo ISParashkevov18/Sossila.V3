@@ -73,3 +73,53 @@ void deleteCustomer(CUSTOMER* customer, int& customerCount, int Id) {
 
 }
 
+void updateCustomer(CUSTOMER* customers, int& customerCount, CUSTOMER newCustomer, int& maxId)
+{
+	int index = getCustomerById(customers, customerCount, maxId);
+	customers[index] = newCustomer;
+}
+
+
+
+void search(CUSTOMER* customers, int& customerCount)
+{
+	CUSTOMER customer;
+	string familyParents;
+	getline(cin, familyParents);
+	if (familyParents == customer.Last_Name)
+	{
+		for (int i = 0; i < customerCount; i++)
+		{
+			cout << "id:" << customers[i].Id << endl;;
+			cout << "Username: " << customers[i].Username << endl;
+			cout << "Password: " << customers[i].Password << endl;
+			cout << "First name: " << customers[i].First_Name << endl;
+			cout << "Last Name: " << customers[i].Last_Name << endl;
+			cout << "Address: " << customers[i].Address << endl;
+			cout << "Student's Name: " << customers[i].Student_Name << endl;
+			cout << "Customer's Year of student: " << customers[i].Year_of_student << endl;
+		}
+	}
+	else
+	{
+		cout << "There aren't people with that name!";
+	}
+}
+
+void showCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId)
+{
+
+	cout << "\n List of the Customer: " << endl;
+
+	for (int i = 0; i < customerCount; i++)
+	{
+		cout << "id:" << customers[i].Id << endl;;
+		cout << "Username: " << customers[i].Username << endl;
+		cout << "Password: " << customers[i].Password << endl;
+		cout << "First name: " << customers[i].First_Name << endl;
+		cout << "Last Name: " << customers[i].Last_Name << endl;
+		cout << "Address: " << customers[i].Address << endl;
+		cout << "Name: " << customers[i].Student_Name << endl;
+		cout << "Customer's Year of student: " << customers[i].Year_of_student << endl;
+	}
+}

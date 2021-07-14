@@ -106,6 +106,38 @@ void search(CUSTOMER* customers, int& customerCount)
 	}
 }
 
+void CustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId) {
+	CUSTOMER customer;
+
+	cout << "Username: ";
+	cin >> customer.Username;
+
+	cout << "Password: ";
+	cin >> customer.Password;
+
+	cout << "First Name: ";
+	cin >> customer.First_Name;
+
+	cout << "Last Name: ";
+	cin >> customer.Last_Name;
+
+	cout << "Address: ";
+	cin >> customer.Address;
+
+	cout << "Student's name: ";
+	cin >> customer.Student_Name;
+
+	cout << "Year of Student: ";
+	while (!(cin >> customer.Year_of_student) or customer.Year_of_student < 12 or customer.Year_of_student > 16)
+	{
+		cin.clear();
+		cin.ignore('\n');
+		cout << "\nEnter correct Year: ";
+	}
+
+	createCustomer(customers, customerCount, customer, maxId);
+}
+
 void showCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId)
 {
 
@@ -132,3 +164,4 @@ void deleteCustomerMenu(CUSTOMER* customers, int& customerCount, int& maxId) {
 
 	deleteCustomer(customers, customerCount, customerId);
 }
+

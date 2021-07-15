@@ -51,12 +51,12 @@ bool isAdmin(string UsernName, string pass)
 	string adminPass = "adminpass";
 	if (UsernName == admin and adminPass == pass)
 	{
-		cout << "Correct Password and Username!\nAccess Granted!" << endl;
+		cout << "Correct" << endl;
 		return true;
 	}
 	else
 	{
-		cout << "Wrong Password or Username! " << endl;
+		cout << "Incorrect	 Password or Username! " << endl;
 		return false;
 	}
 }
@@ -239,7 +239,7 @@ bool showMainMenu(CUSTOMER* customers, int& customerCount, int maxId) {
 	int choice;
 
 	cout << "\n----/MAIN MENU/----" << endl;
-	cout << "1.Customer Menu" << endl;
+	cout << "1.Create Customer" << endl;
 	cout << "2.Show Customers" << endl;
 	cout << "3.Edit Customers" << endl;
 	cout << "4.Delete Customers" << endl;

@@ -56,7 +56,7 @@ bool isAdmin(string UsernName, string pass)
 	}
 	else
 	{
-		cout << "Incorrect	 Password or Username! " << endl;
+		cout << "Incorrect Password or Username! " << endl;
 		return false;
 	}
 }
@@ -176,7 +176,7 @@ void editOrderMenu(CUSTOMER* customers, int& customerCount) {
 	cout << "4. LastName: " << endl;
 	cout << "5 Address: " << endl;
 	cout << "6 Student Name: " << endl;
-	cout << "7 Age: " << endl;
+	cout << "7 Year of student: " << endl;
 	cout << "The field you want to edit: ";
 
 	int edit;
@@ -220,7 +220,7 @@ void editOrderMenu(CUSTOMER* customers, int& customerCount) {
 		break;
 	}
 	case 7: {
-		cout << "Age: ";
+		cout << "Year of student: ";
 		cin >> customer.Year_of_student;
 		updateCustomer(customers, customerCount, customer, customerId);
 		break;
@@ -277,7 +277,7 @@ bool showMainMenu(CUSTOMER* customers, int& customerCount, int maxId) {
 
 int main()
 {
-	cout << "Hostel program\n";
+	
 	int customerCount = 0;
 	int maxId = 1;
 	CUSTOMER customers[500];
